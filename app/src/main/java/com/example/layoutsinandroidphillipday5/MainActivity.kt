@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         val etLastName = findViewById<EditText>(R.id.etLastName)
         val etBirthDate = findViewById<EditText>(R.id.etBirthDate)
         val etCountry = findViewById<EditText>(R.id.etCountry)
+        val btnCount = findViewById<Button>(R.id.btnCount)
+        val tvCount = findViewById<TextView>(R.id.tvCount)
 
         btnApply.setOnClickListener {
             val firstName= etFirstName.text.toString()
@@ -32,6 +35,13 @@ class MainActivity : AppCompatActivity() {
             val birthDate = etBirthDate.text.toString()
             val country = etCountry.text.toString()
             Log.d("MainActivity", "$firstName $lastName, born on $birthDate, from $country just applied to the formular")
+        }
+
+        //****************  Counter for count button   *************
+        var count = 0
+        btnCount.setOnClickListener {
+            count++
+            tvCount.text = "Let's count together : $count"
         }
     }
 }
