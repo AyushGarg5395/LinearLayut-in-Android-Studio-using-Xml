@@ -1,6 +1,9 @@
 package com.example.layoutsinandroidphillipday5
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,20 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btnApply = findViewById<Button>(R.id.btnApply)
+        val etFirstName = findViewById<EditText>(R.id.etFirstName)
+        val etLastName = findViewById<EditText>(R.id.etLastName)
+        val etBirthDate = findViewById<EditText>(R.id.etBirthDate)
+        val etCountry = findViewById<EditText>(R.id.etCountry)
+
+        btnApply.setOnClickListener {
+            val firstName= etFirstName.text.toString()
+            val lastName = etLastName.text.toString()
+            val birthDate = etBirthDate.text.toString()
+            val country = etCountry.text.toString()
+            Log.d("MainActivity", "$firstName $lastName, born on $birthDate, from $country just applied to the formular")
         }
     }
 }
